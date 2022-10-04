@@ -1,2 +1,4 @@
 # STUDENT INFORMATION MANAGEMENT SYSTEM
 
+## PURPOSE
+### 1. Reference material.
