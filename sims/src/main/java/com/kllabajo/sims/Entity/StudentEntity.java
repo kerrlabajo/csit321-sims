@@ -25,7 +25,7 @@ public class StudentEntity {
 	//define constructor
 	public StudentEntity(int id, String firstname, String lastname, String course, int yearlevel) {
 		super();
-		setId(id);
+		//setId(id);
 		setFirstName(firstname);
 		setLastName(lastname);
 		setCourse(course);
@@ -37,9 +37,9 @@ public class StudentEntity {
 		return id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
-	}
+	/*
+	 * public void setId(int id) { this.id = id; }
+	 */
 
 	public String getFirstName() {
 		return firstname;
