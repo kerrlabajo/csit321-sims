@@ -1,2 +1,4 @@
-# sims
-CSIT321 Java Maven project in Eclipse IDE
+# STUDENT INFORMATION MANAGEMENT SYSTEM
+
+### PURPOSE
+#### 1. Reference material.
