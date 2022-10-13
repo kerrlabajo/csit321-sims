@@ -1,6 +1,7 @@
 package com.kllabajo.sims.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,4 +39,31 @@ public class StudentService {
             return null;
     }
     
+  //update student record
+    public StudentEntity putStudent(int id, StudentEntity newStudentDetails) throws Exception {
+        StudentEntity student = new StudentEntity(); //creating an instance of student
+        
+        try {
+            //Search the ID number of the student
+            student = studentRepo.findById(id).get();
+            
+            //update the record
+            student.setCourse(newStudentDetails.getCourse());
+            student.setYearLevel(newStudentDetails.getYearLevel());
+            
+            //Save the information and return the value
+            return studentRepo.save(student);
+        }catch(NoSuchElementException nex) {
+            //throws an error if the id does not exist
+            throw new Exception("ID Number "+ id + " does not exist!");
+        }
+    }
+    
+    public String deleteStudent(int id) {
+        if(studentRepo.findById(id) != null) {
+        	studentRepo.deleteById(id); //find the id number of the student to be deleted
+            return "Student ID Number " + id + " was successfully deleted!";
+        }
+        return "Student ID Number " + id + " was NOT found!";
+    }
 }

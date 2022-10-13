@@ -13,15 +13,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.kllabajo.sims.Entity.StudentEntity;
-import com.kllabajo.sims.Service.StudentService;
+import com.kllabajo.sims.Entity.CourseEntity;
+import com.kllabajo.sims.Service.CourseService;
 
 @RestController
-@RequestMapping("/students")
-public class StudentController {
+@RequestMapping("/courses")
+public class CourseController {
 
 	@Autowired
-	StudentService studentService;
+	CourseService courseService;
 	
 	//printHelloStudent
 	@GetMapping("/print")
@@ -31,29 +31,29 @@ public class StudentController {
 	
 	//Read
 	@GetMapping("/getAllStudents")
-	public List<StudentEntity> getAllStudents(){
-		return studentService.getAllStudents();
+	public List<CourseEntity> getAllCourses(){
+		return courseService.getAllCourses();
 	}
 	
 	  //Create or insert a student record
     @PostMapping("/postStudent")
-    public StudentEntity insertStudent(@RequestBody StudentEntity student) {
-        return studentService.insertStudent(student);
+    public CourseEntity insertCourse(@RequestBody CourseEntity student) {
+        return courseService.insertCourse(student);
     }
   
     //Read a record by Firstname
     @GetMapping("/getByFirstname")
-    public StudentEntity findByFirstname(@RequestParam String firstname) {
-        return studentService.findByFirstname(firstname);
+    public CourseEntity findByCoursename(@RequestParam String course) {
+        return courseService.findByCoursename(course);
     }
     
     @PutMapping("/putStudent")
-    public StudentEntity putStudent(@RequestParam int id, @RequestBody StudentEntity newStudentDetails) throws Exception {
-        return studentService.putStudent(id, newStudentDetails);
+    public CourseEntity putCourse(@RequestParam int id, @RequestBody CourseEntity newCourseDetails) throws Exception {
+        return courseService.putCourse(id, newCourseDetails);
     }
     
     @DeleteMapping("/deleteStudent/{id}")
-    public String deleteStudent(@PathVariable int id) {
-        return studentService.deleteStudent(id);
+    public String deleteCourse(@PathVariable int id) {
+        return courseService.deleteCourse(id);
     }
 }
