@@ -19,12 +19,10 @@ public class CourseService {
 		return courseRepo.findAll();
 	}
 	
-    //C - Create or insert a course record
     public CourseEntity insertCourse(CourseEntity course) {
         return courseRepo.save(course);
     }
     
-    //R - Read or search course record by Firstname
     public CourseEntity findByCode(String course) {
         if (courseRepo.findByCode(course) != null)
             return courseRepo.findByCode(course);
@@ -34,17 +32,15 @@ public class CourseService {
     
   //update course record
     public CourseEntity putCourse(int id, CourseEntity newCourseDetails) throws Exception {
-        CourseEntity course = new CourseEntity(); //creating an instance of course
+        CourseEntity course = new CourseEntity();
         
         try {
-            //Search the ID number of the course
             course = courseRepo.findById(id).get();
             
-            //update the record
+            course.setCode(newCourseDetails.getCode());
             course.setDescription(newCourseDetails.getDescription());
             course.setUnit(newCourseDetails.getUnit());
             
-            //Save the information and return the value
             return courseRepo.save(course);
         }catch(NoSuchElementException nex) {
             //throws an error if the id does not exist
@@ -54,7 +50,7 @@ public class CourseService {
     
     public String deleteCourse(int id) {
         if(courseRepo.findById(id) != null) {
-        	courseRepo.deleteById(id); //find the id number of the course to be deleted
+        	courseRepo.deleteById(id);
             return "Course ID Number " + id + " was successfully deleted!";
         }
         return "Course ID Number " + id + " was NOT found!";

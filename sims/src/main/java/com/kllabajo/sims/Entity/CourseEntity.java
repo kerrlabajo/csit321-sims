@@ -25,7 +25,7 @@ public class CourseEntity {
 	public CourseEntity(int id, String code, String description, int unit) {
 		super();
 		//this.id = id;
-		//this.code = code;
+		setCode(code);
 		setDescription(description);
 		setUnit(unit);
 	}
@@ -42,9 +42,9 @@ public class CourseEntity {
 		return code;
 	}
 
-	/*
-	 * public void setCode(String code) { this.code = code; }
-	 */
+	
+	public void setCode(String code) { this.code = code; }
+	 
 
 	public String getDescription() {
 		return description;

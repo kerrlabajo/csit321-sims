@@ -23,25 +23,16 @@ public class CourseController {
 	@Autowired
 	CourseService courseService;
 	
-	//printHelloStudent
-	@GetMapping("/print")
-	public String printHelloStudent() {
-		return "Hello, Student!";
-	}
-	
-	//Read
 	@GetMapping("/getAllCourses")
 	public List<CourseEntity> getAllCourses(){
 		return courseService.getAllCourses();
 	}
 	
-	  //Create or insert a student record
     @PostMapping("/postCourse")
-    public CourseEntity insertCourse(@RequestBody CourseEntity student) {
-        return courseService.insertCourse(student);
+    public CourseEntity insertCourse(@RequestBody CourseEntity course) {
+        return courseService.insertCourse(course);
     }
   
-    //Read a record by Firstname
     @GetMapping("/getByCourse")
     public CourseEntity findByCode(@RequestParam String course) {
         return courseService.findByCode(course);
