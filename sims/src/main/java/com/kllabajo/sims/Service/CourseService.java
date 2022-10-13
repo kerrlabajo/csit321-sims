@@ -12,13 +12,6 @@ import com.kllabajo.sims.Repository.CourseRepository;
 @Service
 public class CourseService {
 
-	/* this class contains all the business logic of your system
-	 * Create a course record
-	 * Read course record/s by id or firstName
-	 * Update a course record
-	 * Delete a course
-	 */
-
 	@Autowired
 	CourseRepository courseRepo;
 	
