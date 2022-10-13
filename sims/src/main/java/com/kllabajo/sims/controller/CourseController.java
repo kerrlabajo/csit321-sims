@@ -30,29 +30,29 @@ public class CourseController {
 	}
 	
 	//Read
-	@GetMapping("/getAllStudents")
+	@GetMapping("/getAllCourses")
 	public List<CourseEntity> getAllCourses(){
 		return courseService.getAllCourses();
 	}
 	
 	  //Create or insert a student record
-    @PostMapping("/postStudent")
+    @PostMapping("/postCourse")
     public CourseEntity insertCourse(@RequestBody CourseEntity student) {
         return courseService.insertCourse(student);
     }
   
     //Read a record by Firstname
-    @GetMapping("/getByFirstname")
-    public CourseEntity findByCoursename(@RequestParam String course) {
-        return courseService.findByCoursename(course);
+    @GetMapping("/getByCourse")
+    public CourseEntity findByCode(@RequestParam String course) {
+        return courseService.findByCode(course);
     }
     
-    @PutMapping("/putStudent")
+    @PutMapping("/putCourse")
     public CourseEntity putCourse(@RequestParam int id, @RequestBody CourseEntity newCourseDetails) throws Exception {
         return courseService.putCourse(id, newCourseDetails);
     }
     
-    @DeleteMapping("/deleteStudent/{id}")
+    @DeleteMapping("/deleteCourse/{id}")
     public String deleteCourse(@PathVariable int id) {
         return courseService.deleteCourse(id);
     }

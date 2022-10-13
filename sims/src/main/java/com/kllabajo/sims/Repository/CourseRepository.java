@@ -9,5 +9,5 @@ import com.kllabajo.sims.Entity.CourseEntity;
 public interface CourseRepository extends JpaRepository<CourseEntity, Integer>{
 
 	//user-defined query
-	CourseEntity findByCoursename(String course);
+	CourseEntity findByCode(String course);
 }

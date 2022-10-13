@@ -32,9 +32,9 @@ public class CourseService {
     }
     
     //R - Read or search course record by Firstname
-    public CourseEntity findByCoursename(String course) {
-        if (courseRepo.findByCoursename(course) != null)
-            return courseRepo.findByCoursename(course);
+    public CourseEntity findByCode(String course) {
+        if (courseRepo.findByCode(course) != null)
+            return courseRepo.findByCode(course);
         else
             return null;
     }
