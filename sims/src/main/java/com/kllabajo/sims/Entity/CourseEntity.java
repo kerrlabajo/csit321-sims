@@ -1,9 +1,13 @@
 package com.kllabajo.sims.Entity;
 
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,32 +23,35 @@ public class CourseEntity {
 	private String description;
 	private int unit;
 	
-	public CourseEntity() {}
+	@OneToMany(cascade = CascadeType.MERGE)
+	private Set<StudentEntity> student;
 	
-	//define constructor
-	public CourseEntity(int id, String code, String description, int unit) {
+	public CourseEntity() {}
+
+	public CourseEntity(int id, String code, String description, int unit, Set<StudentEntity> student) {
 		super();
-		//this.id = id;
+		setId(id);
 		setCode(code);
 		setDescription(description);
 		setUnit(unit);
+		setStudent(student);
 	}
 
 	public int getId() {
 		return id;
 	}
 
-	/*
-	 * public void setId(int id) { this.id = id; }
-	 */
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	public String getCode() {
 		return code;
 	}
 
-	
-	public void setCode(String code) { this.code = code; }
-	 
+	public void setCode(String code) {
+		this.code = code;
+	}
 
 	public String getDescription() {
 		return description;
@@ -62,7 +69,15 @@ public class CourseEntity {
 		this.unit = unit;
 	}
 
-	//define getter and setter methods
+	public Set<StudentEntity> getStudent() {
+		return student;
+	}
+
+	public void setStudent(Set<StudentEntity> student) {
+		this.student = student;
+	}
+	
+	
 	
 	
 }
